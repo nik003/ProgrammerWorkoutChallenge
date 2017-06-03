@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace ProgrammerWorkoutChallenge
 {
     partial class Form1
     {
@@ -28,20 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+           
             this.SuspendLayout();
+            // 
+            // textBox1
+            // 
+           
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.ClientSize = new System.Drawing.Size(557, 394);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApplication1.View;
+using ProgrammerWorkoutChallenge.View;
+using ProgrammerWorkoutChallenge.Model;
+using ProgrammerWorkoutChallenge.Controller;
 
-namespace WindowsFormsApplication1
+namespace ProgrammerWorkoutChallenge
 {
     static class Program
     {
@@ -15,9 +18,13 @@ namespace WindowsFormsApplication1
         [STAThread]
         static void Main()
         {
+            String p =Directory.GetCurrentDirectory();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Console.WriteLine(p);
+            FormController fc = new FormController();
+            fc.getForm();
+            Application.Run(fc.getForm());
         }
     }
 }
