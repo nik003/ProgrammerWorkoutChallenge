@@ -22,6 +22,7 @@ namespace ProgrammerWorkoutChallenge
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Console.WriteLine(p);
+            
             FormController fc = new FormController();
             fc.getForm();
             Application.Run(fc.getForm());

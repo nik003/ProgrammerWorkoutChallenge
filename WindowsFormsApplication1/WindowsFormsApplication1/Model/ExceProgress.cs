@@ -12,6 +12,7 @@ namespace ProgrammerWorkoutChallenge.Model
         public int noExcercises;
         public List<String> nameExcercises;
         public List<int> progExcercises;
+        public List<double> dividers;
         
         
 

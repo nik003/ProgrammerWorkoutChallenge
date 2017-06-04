@@ -23,7 +23,7 @@ namespace ProgrammerWorkoutChallenge.View
             {
                 tb = new TextBox();
                 tb.Size = new Size((formSize.Width / excercises)-10,50);
-                tb.Location = new Point((formSize.Width / excercises) * i, formSize.Height / 3);
+                tb.Location = new Point((formSize.Width / excercises) * i, (5*formSize.Height) /12 );
                 tb.Text = i+"";
                 textBoxes.Add(tb);
 

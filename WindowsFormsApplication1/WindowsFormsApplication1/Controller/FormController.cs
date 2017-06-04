@@ -13,14 +13,19 @@ namespace ProgrammerWorkoutChallenge.Controller
     class FormController
     {
         Form1 form;
-        public FormController()
+        LogHandler lh;
+        EventHandler keyLogger;
+        public FormController( )
         {
-            form = new Form1(new EventHandler(Form1_Load));
+           
+            lh = new LogHandler();
+            keyLogger = new EventHandler(lh.startLogging);
+            form = new Form1(new EventHandler(Form1_Load), new EventHandler(reload_form));
         }
          
            private void Form1_Load(object sender, System.EventArgs e)
              {
-            
+            int enters = lh.readEnters();
             try
             {
                 StreamReader sr = new StreamReader(Application.StartupPath + @"\progress.dat");
@@ -29,7 +34,7 @@ namespace ProgrammerWorkoutChallenge.Controller
 
 
                 sr.Close();
-                form.createForm(prog);
+                form.createForm(prog,keyLogger,enters);
 
             }
             catch (Exception ev)
@@ -37,14 +42,25 @@ namespace ProgrammerWorkoutChallenge.Controller
                 ExceProgress ep = new ExceProgress();
                 ep.noExcercises = 3;
                 ep.nameExcercises = new List<String> { "Pushups", "Crunches", "Running" };
-                ep.progExcercises = new List<int> { 0, 0, 0 };
-                form.createForm(ep);
+                ep.progExcercises = new List<int> { 0, 0, 0};
+                ep.dividers = new List<double> { 1, 1, 1 };
+                form.createForm(ep, keyLogger,enters);
             }
             
         }
         public Form getForm()
         {
             return form;
+        }
+        public void reload_form(object sender, EventArgs e)
+        {
+            int enters = lh.readEnters();
+            ExceProgress ep = new ExceProgress();
+            ep.noExcercises = 3;
+            ep.nameExcercises = new List<String> { "Pushups", "Crunches", "Running" };
+            ep.progExcercises = new List<int> { 0, 0, 0 };
+            ep.dividers = new List<double> { 1, 1, 1 };
+            form.updateEnters(ep,keyLogger,enters);
         }
     }
     
